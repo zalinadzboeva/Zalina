@@ -43,6 +43,7 @@
             this.TeachBtn.TabIndex = 0;
             this.TeachBtn.Text = "Обучение";
             this.TeachBtn.UseVisualStyleBackColor = true;
+            this.TeachBtn.Click += new System.EventHandler(this.TeachBtn_Click_1);
             // 
             // TestBtn
             // 

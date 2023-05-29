@@ -33,10 +33,15 @@ namespace Zalina
         }
         private void BestScoreBtn_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TeachBtn_Click_1(object sender, EventArgs e)
         {
 
         }
