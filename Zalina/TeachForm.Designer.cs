@@ -39,6 +39,7 @@
             this.MaximizeBox = false;
             this.Name = "TeachForm";
             this.Text = "Обучение";
+            this.Load += new System.EventHandler(this.TeachForm_Load);
             this.ResumeLayout(false);
 
         }

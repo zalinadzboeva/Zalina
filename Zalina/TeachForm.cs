@@ -126,6 +126,19 @@ namespace Zalina
                 turned = null;
             }
         }
+        private int GetPanelIndex(Point loc)
+        {
+            int index = 0;
+            for (int i = 0; i < BoxList.Count; i++)
+            {
+                if (BoxList[i].Panel.Location == loc)
+                {
+                    return index;
+                }
+                index++;
+            }
+            return -1;
+        }
         private static void ShuffleArray(string[] array)
         {
             Random rand = new Random();
@@ -142,7 +155,26 @@ namespace Zalina
                 array[j] = temp;
             }
         }
+        private void EnablePanels()
+        {
+            for (int i = 0; i < BoxList.Count; i++)
+            {
+                BoxList[i].Panel.Enabled = !BoxList[i].Panel.Enabled;
+            }
+        }
+        private bool IsWin()
+        {
+            for (int i = 0; i < BoxList.Count; i++)
+            {
+                if (BoxList[i].IsGreen == false) return false;
+            }
+            return true;
+        }
 
+        private void TeachForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
