@@ -40,6 +40,7 @@
             this.Name = "TestForm";
             this.ShowIcon = false;
             this.Text = "Тест";
+            this.Load += new System.EventHandler(this.TestForm_Load);
             this.ResumeLayout(false);
 
         }

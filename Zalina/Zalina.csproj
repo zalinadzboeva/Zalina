@@ -61,6 +61,7 @@
     <Compile Include="TeachForm.Designer.cs">
       <DependentUpon>TeachForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestBox.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
