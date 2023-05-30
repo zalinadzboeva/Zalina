@@ -55,6 +55,7 @@
             this.TestBtn.TabIndex = 1;
             this.TestBtn.Text = "Тест";
             this.TestBtn.UseVisualStyleBackColor = true;
+            this.TestBtn.Click += new System.EventHandler(this.TestBtn_Click_1);
             // 
             // BestScoreBtn
             // 

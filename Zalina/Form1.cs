@@ -17,14 +17,14 @@ namespace Zalina
             InitializeComponent();
             this.CenterToScreen();
         }
-        private void TeachBtn_Click(object sender, EventArgs e)
+        private void TeachBtn_Click_1(object sender, EventArgs e)
         {
             Form teachForm = new TeachForm();
             this.Hide();
             teachForm.ShowDialog();
             this.Close();
         }
-        private void TestBtn_Click(object sender, EventArgs e)
+        private void TestBtn_Click_1(object sender, EventArgs e)
         {
             Form testForm = new TestForm();
             this.Hide();
@@ -41,9 +41,6 @@ namespace Zalina
 
         }
 
-        private void TeachBtn_Click_1(object sender, EventArgs e)
-        {
 
-        }
     }
 }
