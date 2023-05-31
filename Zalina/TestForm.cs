@@ -44,11 +44,30 @@ namespace Zalina
                     panel.BackColor = Color.Azure;
                     panel.Click += new System.EventHandler(this.ClickOnPanel);
 
-                    
+                    // Создаем новый pictureBox и задаем ему параметры
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Location = new Point(15, 15);
+                    pictureBox.Size = new Size(75, 75);
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Enabled = false;
+
+
+                    box.Panel = panel;
+                    box.Image = pictureBox;
+                    box.ImageUrl = "Test/" + indexArr[BoxList.Count] + ".png";
+                    box.Index = indexArr[BoxList.Count].Substring(0, 1);
+
+                    // Добавляем pictureBox в панель
+                    panel.Controls.Add(pictureBox);
+                    // Добавляем панель в динамический массив
+                    BoxList.Add(box);
+                    // Добавляем панель на форму
+                    this.Controls.Add(panel);
                 }
             }
 
         }
+
         private async void ClickOnPanel(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;/*Получили панель, которая была нажата и записали ее в переменную*/
@@ -114,13 +133,9 @@ namespace Zalina
                 turned = null;
             }
         }
-        private void EnablePanels()
-        {
-            for (int i = 0; i < BoxList.Count; i++)
-            {
-                BoxList[i].Panel.Enabled = !BoxList[i].Panel.Enabled;
-            }
-        }
+
+
+
         private static void ShuffleArray(string[] array)
         {
             Random rand = new Random();
@@ -137,6 +152,7 @@ namespace Zalina
                 array[j] = temp;
             }
         }
+
         private int GetPanelIndex(Point loc)
         {
             int index = 0;
@@ -150,6 +166,42 @@ namespace Zalina
             }
             return -1;
         }
+
+        private void EnablePanels()
+        {
+            for (int i = 0; i < BoxList.Count; i++)
+            {
+                BoxList[i].Panel.Enabled = !BoxList[i].Panel.Enabled;
+            }
+        }
+
+        private bool IsWin()
+        {
+            for (int i = 0; i < BoxList.Count; i++)
+            {
+                if (BoxList[i].IsGreen == false) return false;
+            }
+            WriteResult();
+            return true;
+        }
+
+        private void WriteResult()
+        {
+            FileHandler fh = new FileHandler(filePath);
+
+            try
+            {
+                int bestScore = int.Parse(fh.ReadFromFile());
+                if (bestScore <= score) return;
+                fh.WriteToFile(Convert.ToString(score));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+            }
+        }
+
         private void TestForm_Load(object sender, EventArgs e)
         {
 

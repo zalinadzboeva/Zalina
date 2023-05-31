@@ -65,8 +65,9 @@
             this.BestScoreBtn.Name = "BestScoreBtn";
             this.BestScoreBtn.Size = new System.Drawing.Size(322, 48);
             this.BestScoreBtn.TabIndex = 2;
-            this.BestScoreBtn.Text = "button2";
+            this.BestScoreBtn.Text = "Лучший счет";
             this.BestScoreBtn.UseVisualStyleBackColor = true;
+            this.BestScoreBtn.Click += new System.EventHandler(this.BestScoreBtn_Click_1);
             // 
             // Form1
             // 

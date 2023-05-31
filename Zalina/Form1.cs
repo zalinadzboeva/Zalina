@@ -12,6 +12,7 @@ namespace Zalina
 {
     public partial class Form1 : Form
     {
+        string filePath = "result.txt";
         public Form1()
         {
             InitializeComponent();
@@ -31,9 +32,11 @@ namespace Zalina
             testForm.ShowDialog();
             this.Close();
         }
-        private void BestScoreBtn_Click(object sender, EventArgs e)
+        private void BestScoreBtn_Click_1(object sender, EventArgs e)
         {
-            
+            FileHandler fh = new FileHandler(filePath);
+            string bestScore = fh.ReadFromFile();
+            MessageBox.Show("Лучший счет - " + bestScore);
         }
 
         private void Form1_Load(object sender, EventArgs e)
